@@ -27,6 +27,12 @@ pub trait Key {
     fn serialize(&self) -> &[u8];
 }
 
+impl Key for () {
+    fn serialize(&self) -> &[u8] {
+        &[]
+    }
+}
+
 impl Key for str {
     fn serialize(&self) -> &[u8] {
         self.as_bytes()
